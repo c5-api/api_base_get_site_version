@@ -7,9 +7,9 @@ class GetSiteVersionApiRouteController extends ApiRouteController {
 			case 'GET':
 				return Config::get('SITE_APP_VERSION');
 			
-			default: //BAD REQUEST
-				$this->setCode(400);
-				$this->respond();
+			default: //METHOD NOT ALLOWED
+				$this->setCode(405);
+				$this->respond(arraY('error' => 'Method Not Allowed'));
 		}
 	}
 }
